@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Formulario de Promedio</h2>
+
+<form id="averageForm">
+  <label for="num1">Número 1:</label><br>
+  <input type="text" id="num1" name="num1"><br>
+  <label for="num2">Número 2:</label><br>
+  <input type="text" id="num2" name="num2"><br>
+  <label for="num3">Número 3:</label><br>
+  <input type="text" id="num3" name="num3"><br>
+  <input type="button" value="Calcular Promedio" onclick="calcularPromedioTresNumeros()">
+</form>
+
+<script>
+function calcularPromedioTresNumeros() {
+  var num1 = parseFloat(document.getElementById("num1").value);
+  var num2 = parseFloat(document.getElementById("num2").value);
+  var num3 = parseFloat(document.getElementById("num3").value);
+  var promedio = (num1 + num2 + num3) / 3;
+  alert("El promedio de los tres números es: " + promedio);
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

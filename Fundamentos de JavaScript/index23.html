@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Determinar Cuadrante de un Punto</h2>
+
+<form id="quadrantForm">
+  <label for="coordenadaX">Coordenada X:</label><br>
+  <input type="text" id="coordenadaX" name="coordenadaX"><br>
+  <label for="coordenadaY">Coordenada Y:</label><br>
+  <input type="text" id="coordenadaY" name="coordenadaY"><br>
+  <input type="button" value="Determinar Cuadrante" onclick="determinarCuadrante()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function determinarCuadrante() {
+  var coordenadaX = parseFloat(document.getElementById("coordenadaX").value);
+  var coordenadaY = parseFloat(document.getElementById("coordenadaY").value);
+  var cuadrante = "";
+  if (coordenadaX > 0 && coordenadaY > 0) {
+    cuadrante = "Primer cuadrante";
+  } else if (coordenadaX < 0 && coordenadaY > 0) {
+    cuadrante = "Segundo cuadrante";
+  } else if (coordenadaX < 0 && coordenadaY < 0) {
+    cuadrante = "Tercer cuadrante";
+  } else if (coordenadaX > 0 && coordenadaY < 0) {
+    cuadrante = "Cuarto cuadrante";
+  } else {
+    cuadrante = "El punto está en el origen o en uno de los ejes";
+  }
+  document.getElementById("resultado").innerHTML = "El punto se encuentra en el: " + cuadrante;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

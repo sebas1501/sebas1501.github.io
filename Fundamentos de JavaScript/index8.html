@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Formulario de Edad Futura</h2>
+
+<form id="ageForm">
+  <label for="edadActual">Edad Actual:</label><br>
+  <input type="text" id="edadActual" name="edadActual"><br>
+  <input type="button" value="Calcular Edad Futura" onclick="calcularEdadFutura()">
+</form>
+
+<script>
+function calcularEdadFutura() {
+  var edadActual = parseInt(document.getElementById("edadActual").value);
+  var edadFutura = edadActual + 10;
+  alert("Tu edad dentro de 10 años será: " + edadFutura);
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Evaluación de Calificaciones</h2>
+
+<form id="gradeForm">
+  <label for="calificacion">Calificación:</label><br>
+  <input type="text" id="calificacion" name="calificacion"><br>
+  <input type="button" value="Evaluar" onclick="evaluarCalificaciones()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function evaluarCalificaciones() {
+  var calificacion = parseFloat(document.getElementById("calificacion").value);
+  var mensaje = "";
+  if (calificacion >= 90 && calificacion <= 100) {
+    mensaje = "Excelente";
+  } else if (calificacion >= 80 && calificacion < 90) {
+    mensaje = "Bueno";
+  } else if (calificacion >= 70 && calificacion < 80) {
+    mensaje = "Regular";
+  } else if (calificacion < 70) {
+    mensaje = "Insuficiente";
+  } else {
+    mensaje = "Calificación inválida";
+  }
+  document.getElementById("resultado").innerHTML = "La evaluación de la calificación es: " + mensaje;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

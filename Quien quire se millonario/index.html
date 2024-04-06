@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>¿Quién quiere ser millonario?</title>
+</head>
+<body>
+    <h1>¿Quién quiere ser millonario?</h1>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        #pregunta {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 1em;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #ccc;
+        }
+        #puntaje {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 1em;
+        }
+    </style>
+    <h2></h2><div id="pregunta"></div></h2>
+    <button id="respuesta1"></button>
+    <button id="respuesta2"></button>
+    <button id="respuesta3"></button>
+    <button id="respuesta4"></button>
+    <br>
+    <button id="pista">Pista</button>
+    <button id="cincuenta">50/50</button>
+    <button id="doble">Doble Puntuación</button>
+    <div id="puntaje">Puntaje: 0</div>
+
+    <script>
+        var preguntas = [
+        
+    {
+        pregunta: "¿Cuál es la capital de Colombia?",
+        respuestas: ["Bogotá", "Medellín", "Cali", "Barranquilla"],
+        correcta: 0,
+        pista: "Es la ciudad más poblada del país."
+    },
+    {
+        pregunta: "¿Cuál es el río más largo del mundo?",
+        respuestas: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
+        correcta: 1,
+        pista: "Se encuentra en América del Sur."
+    },
+    {
+        pregunta: "¿Quién pintó la Mona Lisa?",
+        respuestas: ["Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+        correcta: 2,
+        pista: "Es un artista del Renacimiento."
+    },
+    {
+        pregunta: "¿Cuál es el planeta más grande del sistema solar?",
+        respuestas: ["Tierra", "Marte", "Júpiter", "Venus"],
+        correcta: 2,
+        pista: "Es conocido por sus prominentes bandas de nubes."
+    },
+    {
+        pregunta: "¿Cuál es el libro más vendido en el mundo?",
+        respuestas: ["Don Quijote de la Mancha", "El Señor de los Anillos", "Harry Potter y la Piedra Filosofal", "La Biblia"],
+        correcta: 3,
+        pista: "Es un texto sagrado."
+    },
+    {
+        pregunta: "¿Cuál es el animal terrestre más rápido?",
+        respuestas: ["León", "Elefante", "Guepardo", "Canguro"],
+        correcta: 2,
+        pista: "Es un felino africano."
+    },
+    {
+        pregunta: "¿Cuál es el edificio más alto del mundo?",
+        respuestas: ["Torre Eiffel", "Burj Khalifa", "Empire State", "Torre de Shanghai"],
+        correcta: 1,
+        pista: "Se encuentra en Dubái."
+    },
+    {
+        pregunta: "¿Cuál es el océano más grande del mundo?",
+        respuestas: ["Atlántico", "Índico", "Ártico", "Pacífico"],
+        correcta: 3,
+        pista: "Se extiende desde América hasta Asia."
+    },
+    {
+        pregunta: "¿Quién escribió 'Cien años de soledad'?",
+        respuestas: ["Ernest Hemingway", "Gabriel García Márquez", "Octavio Paz", "Mario Vargas Llosa"],
+        correcta: 1,
+        pista: "Es un autor colombiano ganador del Premio Nobel."
+    },
+    {
+        pregunta: "¿Cuál es el país más poblado del mundo?",
+        respuestas: ["Estados Unidos", "India", "China", "Indonesia"],
+        correcta: 2,
+        pista: "Es conocido por su gran muralla."
+    }
+
+
+        ];
+
+        var preguntaActual = 0;
+        var puntaje = 0;
+        var doblePuntuacion = false;
+        var dobleUsado = false;
+        var pistaUsada = false;
+
+        function mostrarPregunta() {
+            var pregunta = preguntas[preguntaActual];
+            document.getElementById('pregunta').textContent = pregunta.pregunta;
+            for (var i = 0; i < pregunta.respuestas.length; i++) {
+                var boton = document.getElementById('respuesta' + (i + 1));
+                boton.textContent = pregunta.respuestas[i];
+                boton.disabled = false;
+                boton.onclick = (function(i) {
+                    return function() {
+                        if (i === pregunta.correcta) {
+                            alert("¡Correcto!");
+                            puntaje += doblePuntuacion ? 2 : 1;
+                            doblePuntuacion = false;
+                        } else {
+                            alert("Lo siento, esa respuesta es incorrecta.");
+                        }
+                        preguntaActual++;
+                        if (preguntaActual < preguntas.length) {
+                            mostrarPregunta();
+                        } else {
+                            alert("¡Has terminado el juego con un puntaje de " + puntaje + "!");
+                        }
+                    };
+                })(i);
+            }
+            document.getElementById('puntaje').textContent = "Puntaje: " + puntaje;
+            document.getElementById('pista').disabled = pistaUsada;
+            document.getElementById('cincuenta').disabled = dobleUsado;
+            document.getElementById('doble').disabled = dobleUsado;
+        }
+
+        document.getElementById('pista').onclick = function() {
+            if (!pistaUsada) {
+                alert("Pista: " + preguntas[preguntaActual].pista);
+                pistaUsada = true;
+                this.disabled = true;
+            }
+        };
+
+        document.getElementById('cincuenta').onclick = function() {
+            if (!dobleUsado) {
+                var pregunta = preguntas[preguntaActual];
+                var eliminadas = 0;
+                for (var i = 0; i < pregunta.respuestas.length; i++) {
+                    if (i !== pregunta.correcta && eliminadas < 2) {
+                        var boton = document.getElementById('respuesta' + (i + 1));
+                        boton.textContent = "";
+                        boton.disabled = true;
+                        eliminadas++;
+                    }
+                }
+                dobleUsado = true;
+                this.disabled = true;
+            }
+        };
+
+        document.getElementById('doble').onclick = function() {
+            if (!dobleUsado) {
+                doblePuntuacion = true;
+                dobleUsado = true;
+                this.disabled = true;
+            }
+        };
+
+        mostrarPregunta();
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Formulario de Animal</h2>
+
+<form id="animalForm">
+  <label for="nombreanimal">Nombre del Animal:</label><br>
+  <input type="text" id="nombreanimal" name="nombreanimal"><br>
+  <input type="button" value="Enviar" onclick="guardarNombre()">
+</form>
+
+<script>
+function guardarNombre() {
+  var nombreanimal = document.getElementById("nombreanimal").value;
+  alert("El nombre del animal es: " + nombreanimal);
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

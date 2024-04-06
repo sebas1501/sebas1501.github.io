@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verificar si es Día Laboral</h2>
+
+<form id="workDayForm">
+  <label for="dia">Día de la Semana (1-7, donde 1 es Lunes y 7 es Domingo):</label><br>
+  <input type="text" id="dia" name="dia"><br>
+  <input type="button" value="Verificar" onclick="esDiaDeTrabajo()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function esDiaDeTrabajo() {
+  var dia = parseInt(document.getElementById("dia").value);
+  var esDiaDeTrabajo = false;
+  if (dia >= 1 && dia <= 5) {
+    esDiaDeTrabajo = true;
+  }
+  document.getElementById("resultado").innerHTML = "¿Es día laboral?: " + esDiaDeTrabajo;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

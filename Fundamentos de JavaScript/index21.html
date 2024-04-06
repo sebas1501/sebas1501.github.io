@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verificar si es Vocal</h2>
+
+<form id="vowelForm">
+  <label for="letra">Letra:</label><br>
+  <input type="text" id="letra" name="letra" maxlength="1"><br>
+  <input type="button" value="Verificar" onclick="esVocal()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function esVocal() {
+  var letra = document.getElementById("letra").value.toLowerCase();
+  var esVocal = ['a', 'e', 'i', 'o', 'u'].includes(letra);
+  document.getElementById("resultado").innerHTML = "¿Es vocal?: " + esVocal;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

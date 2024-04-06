@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Formulario de Descuento</h2>
+
+<form id="discountForm">
+  <label for="precioOriginal">Precio Original:</label><br>
+  <input type="text" id="precioOriginal" name="precioOriginal"><br>
+  <label for="descuento">Porcentaje de Descuento:</label><br>
+  <input type="text" id="descuento" name="descuento"><br>
+  <input type="button" value="Calcular Descuento" onclick="calcularDescuento()">
+</form>
+
+<script>
+function calcularDescuento() {
+  var precioOriginal = parseFloat(document.getElementById("precioOriginal").value);
+  var descuento = parseFloat(document.getElementById("descuento").value);
+  var precioDescuento = precioOriginal - (precioOriginal * descuento / 100);
+  alert("El precio con descuento es: " + precioDescuento);
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

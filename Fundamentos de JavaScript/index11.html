@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verificar Mayor de Edad</h2>
+
+<form id="ageCheckForm">
+  <label for="edad">Edad:</label><br>
+  <input type="text" id="edad" name="edad"><br>
+  <input type="button" value="Verificar" onclick="esMayorDeEdad()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function esMayorDeEdad() {
+  var edad = parseInt(document.getElementById("edad").value);
+  var mensaje = "";
+  if (edad >= 18) {
+    mensaje = "Eres mayor de edad.";
+  } else {
+    mensaje = "No eres mayor de edad.";
+  }
+  document.getElementById("resultado").innerHTML = mensaje;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

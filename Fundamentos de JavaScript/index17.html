@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verificar si es Día Hábil</h2>
+
+<form id="dayForm">
+  <label for="dia">Día (1-7):</label><br>
+  <input type="text" id="dia" name="dia"><br>
+  <input type="button" value="Verificar" onclick="esDiaHabil()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function esDiaHabil() {
+  var dia = parseInt(document.getElementById("dia").value);
+  var esDiaHabil = false;
+  if (dia >= 1 && dia <= 5) {
+    esDiaHabil = true;
+  }
+  document.getElementById("resultado").innerHTML = "¿Es día hábil?: " + esDiaHabil;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

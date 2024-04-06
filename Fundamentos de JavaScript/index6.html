@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Formulario de Círculo</h2>
+
+<form id="circleForm">
+  <label for="radio">Radio del Círculo:</label><br>
+  <input type="text" id="radio" name="radio"><br>
+  <input type="button" value="Calcular Área" onclick="calcularAreaCirculo()">
+</form>
+
+<script>
+function calcularAreaCirculo() {
+  var radio = document.getElementById("radio").value;
+  var area = Math.PI * Math.pow(radio, 2);
+  alert("El área del círculo es: " + area);
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

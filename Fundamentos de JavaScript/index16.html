@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verificar si Puede Conducir</h2>
+
+<form id="driveCheckForm">
+  <label for="edad">Edad:</label><br>
+  <input type="text" id="edad" name="edad"><br>
+  <label for="tieneLicencia">¿Tiene Licencia? (escribe "si" o "no"):</label><br>
+  <input type="text" id="tieneLicencia" name="tieneLicencia"><br>
+  <input type="button" value="Verificar" onclick="puedeConducir()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function puedeConducir() {
+  var edad = parseInt(document.getElementById("edad").value);
+  var tieneLicencia = document.getElementById("tieneLicencia").value.toLowerCase();
+  var puedeConducir = false;
+  if (edad >= 18 && tieneLicencia == "si") {
+    puedeConducir = true;
+  }
+  document.getElementById("resultado").innerHTML = "¿Puede conducir?: " + puedeConducir;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

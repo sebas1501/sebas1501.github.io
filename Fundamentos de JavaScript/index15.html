@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Generar Número Aleatorio</h2>
+
+<button onclick="generarNumeroAleatorio()">Generar Número</button>
+
+<p id="numeroAleatorio"></p>
+
+<script>
+function generarNumeroAleatorio() {
+  var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+  document.getElementById("numeroAleatorio").innerHTML = "El número aleatorio generado es: " + numeroAleatorio;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

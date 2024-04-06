@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Comparar Cadenas</h2>
+
+<form id="stringCompareForm">
+  <label for="cadena1">Cadena 1:</label><br>
+  <input type="text" id="cadena1" name="cadena1"><br>
+  <label for="cadena2">Cadena 2:</label><br>
+  <input type="text" id="cadena2" name="cadena2"><br>
+  <input type="button" value="Comparar" onclick="compararCadenas()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function compararCadenas() {
+  var cadena1 = document.getElementById("cadena1").value;
+  var cadena2 = document.getElementById("cadena2").value;
+  var sonIguales = (cadena1 === cadena2);
+  document.getElementById("resultado").innerHTML = "Las cadenas son iguales: " + sonIguales;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Validar Número de Tarjeta de Crédito</h2>
+
+<form id="creditCardForm">
+  <label for="numeroTarjeta">Número de Tarjeta:</label><br>
+  <input type="text" id="numeroTarjeta" name="numeroTarjeta"><br>
+  <input type="button" value="Validar" onclick="validarTarjetaCredito()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function validarTarjetaCredito() {
+  var numeroTarjeta = document.getElementById("numeroTarjeta").value;
+  var esValido = false;
+
+  // Algoritmo de Luhn
+  var suma = 0;
+  var digitos = numeroTarjeta.split('').reverse();
+  for (var i = 0; i < digitos.length; i++) {
+    var digito = parseInt(digitos[i]);
+    if (i % 2 != 0) {
+      digito *= 2;
+      if (digito > 9) {
+        digito -= 9;
+      }
+    }
+    suma += digito;
+  }
+  esValido = (suma % 10 == 0);
+
+  document.getElementById("resultado").innerHTML = "¿Es válido el número de tarjeta?: " + esValido;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

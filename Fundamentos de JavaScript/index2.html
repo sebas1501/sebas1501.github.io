@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript en HTML</h2>
+
+<input id="inputCiudad" type="text" placeholder="Ingresa el nombre de una ciudad">
+<button onclick="mostrarCiudad()">Mostrar Ciudad</button>
+
+<p id="demo"></p>
+
+<script>
+function mostrarCiudad() {
+  var nombreCiudad = document.getElementById("inputCiudad").value;
+  document.getElementById("demo").innerHTML = nombreCiudad;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

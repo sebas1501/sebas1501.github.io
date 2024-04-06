@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Evaluar Edades</h2>
+
+<form id="ageForm">
+  <label for="edad1">Edad 1:</label><br>
+  <input type="text" id="edad1" name="edad1"><br>
+  <label for="edad2">Edad 2:</label><br>
+  <input type="text" id="edad2" name="edad2"><br>
+  <input type="button" value="Evaluar" onclick="evaluarEdades()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function evaluarEdades() {
+  var edad1 = parseInt(document.getElementById("edad1").value);
+  var edad2 = parseInt(document.getElementById("edad2").value);
+  var mensaje = "";
+  if (edad1 === edad2) {
+    mensaje = "Las edades son iguales.";
+  } else if (edad1 > edad2) {
+    mensaje = "La edad 1 es mayor que la edad 2.";
+  } else {
+    mensaje = "La edad 2 es mayor que la edad 1.";
+  }
+  document.getElementById("resultado").innerHTML = mensaje;
+}
+</script>
+
+</body>
+</html>

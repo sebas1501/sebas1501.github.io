@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verificar si es Año Bisiesto</h2>
+
+<form id="leapYearForm">
+  <label for="anio">Año:</label><br>
+  <input type="text" id="anio" name="anio"><br>
+  <input type="button" value="Verificar" onclick="esBisiesto()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function esBisiesto() {
+  var anio = parseInt(document.getElementById("anio").value);
+  var esBisiesto = (anio % 4 == 0 && (anio % 100 != 0 || anio % 400 == 0));
+  document.getElementById("resultado").innerHTML = "¿Es año bisiesto?: " + esBisiesto;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

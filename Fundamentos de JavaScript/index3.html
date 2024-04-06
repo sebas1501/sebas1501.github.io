@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Calculadora de Edad</h2>
+
+<p>Año de Nacimiento: <input type="text" id="anioNacimiento" name="anioNacimiento"></p>
+<button onclick="calcularEdad()">Calcular Edad</button>
+
+<p id="resultado"></p>
+
+<script>
+function calcularEdad() {
+  var anioNacimiento = document.getElementById("anioNacimiento").value;
+  var fechaActual = new Date();
+  var anioActual = fechaActual.getFullYear();
+  var edadActual = anioActual - anioNacimiento;
+  document.getElementById("resultado").innerHTML = "Tu edad actual es: " + edadActual;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>

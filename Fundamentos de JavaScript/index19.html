@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Verificar si un Número es Múltiplo de Otro</h2>
+
+<form id="multiplicityForm">
+  <label for="numero1">Número 1:</label><br>
+  <input type="text" id="numero1" name="numero1"><br>
+  <label for="numero2">Número 2:</label><br>
+  <input type="text" id="numero2" name="numero2"><br>
+  <input type="button" value="Verificar" onclick="esMultiplo()">
+</form>
+
+<p id="resultado"></p>
+
+<script>
+function esMultiplo() {
+  var numero1 = parseInt(document.getElementById("numero1").value);
+  var numero2 = parseInt(document.getElementById("numero2").value);
+  var esMultiplo = (numero1 % numero2 == 0);
+  document.getElementById("resultado").innerHTML = "¿El número 1 es múltiplo del número 2?: " + esMultiplo;
+}
+</script>
+<button><a href="index.html"><h2>atras</h2></a></button>
+</body>
+</html>
